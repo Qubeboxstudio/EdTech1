@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship MCQ Test</title>
+    <style>
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .score {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Entrepreneurship MCQ Test</h1>
+    
+    <!-- Student Login Section -->
+    <form id="loginForm" onsubmit="return startQuiz();">
+        <p>Please log in to start the quiz:</p>
+        <label for="studentName">Name:</label>
+        <input type="text" id="studentName" required><br>
+        <label for="studentID">Student ID:</label>
+        <input type="text" id="studentID" required><br>
+        <button type="submit">Start Quiz</button>
+    </form>
+    
+    <form id="mcqForm" style="display:none;" onsubmit="return handleSubmit();">
+        <!-- Question 1 -->
+        <p>1. What is the primary goal of an entrepreneur?</p>
+        <input type="radio" name="Q1" value="A"> A. To create value and generate profit<br>
+        <input type="radio" name="Q1" value="B"> B. To maximize social welfare<br>
+        <input type="radio" name="Q1" value="C"> C. To avoid risk<br>
+        <input type="radio" name="Q1" value="D"> D. To follow traditional business practices<br>
+        <p id="feedback1"></p>
+
+        <!-- Question 2 -->
+        <p>2. Which of the following is a characteristic of a successful entrepreneur?</p>
+        <input type="radio" name="Q2" value="A"> A. Risk aversion<br>
+        <input type="radio" name="Q2" value="B"> B. High tolerance for failure<br>
+        <input type="radio" name="Q2" value="C"> C. Preference for routine<br>
+        <input type="radio" name="Q2" value="D"> D. Dependence on others for decision-making<br>
+        <p id="feedback2"></p>
+
+        <!-- Question 3 -->
+        <p>3. What is the role of innovation in entrepreneurship?</p>
+        <input type="radio" name="Q3" value="A"> A. It is irrelevant<br>
+        <input type="radio" name="Q3" value="B"> B. It should be avoided<br>
+        <input type="radio" name="Q3" value="C"> C. It is essential for creating a competitive advantage<br>
+        <input type="radio" name="Q3" value="D"> D. It only applies to large businesses<br>
+        <p id="feedback3"></p>
+
+        <!-- Question 4 -->
+        <p>4. What does 'bootstrapping' mean in the context of startups?</p>
+        <input type="radio" name="Q4" value="A"> A. Securing venture capital<br>
+        <input type="radio" name="Q4" value="B"> B. Self-funding a business without external capital<br>
+        <input type="radio" name="Q4" value="C"> C. Starting a business with a large initial investment<br>
+        <input type="radio" name="Q4" value="D"> D. Hiring a large team from the outset<br>
+        <p id="feedback4"></p>
+
+        <!-- Question 5 -->
+        <p>5. Which of the following is a key element of a business plan?</p>
+        <input type="radio" name="Q5" value="A"> A. Executive summary<br>
+        <input type="radio" name="Q5" value="B"> B. Personal hobbies<br>
+        <input type="radio" name="Q5" value="C"> C. Fictional stories<br>
+        <input type="radio" name="Q5" value="D"> D. Job application<br>
+        <p id="feedback5"></p>
+
+        <!-- Question 6 -->
+        <p>6. What is a common challenge faced by entrepreneurs?</p>
+        <input type="radio" name="Q6" value="A"> A. Unlimited access to resources<br>
+        <input type="radio" name="Q6" value="B"> B. Managing cash flow<br>
+        <input type="radio" name="Q6" value="C"> C. Absence of competition<br>
+        <input type="radio" name="Q6" value="D"> D. Lack of personal motivation<br>
+        <p id="feedback6"></p>
+
+        <!-- Question 7 -->
+        <p>7. What is the importance of a 'value proposition' in a business?</p>
+        <input type="radio" name="Q7" value="A"> A. It defines the unique value a business offers to customers<br>
+        <input type="radio" name="Q7" value="B"> B. It is unrelated to the business model<br>
+        <input type="radio" name="Q7" value="C"> C. It focuses on the business's internal processes<br>
+        <input type="radio" name="Q7" value="D"> D. It is a secondary concern for startups<br>
+        <p id="feedback7"></p>
+
+        <!-- Question 8 -->
+        <p>8. What is the purpose of a 'minimum viable product' (MVP)?</p>
+        <input type="radio" name="Q8" value="A"> A. To launch a fully-featured product<br>
+        <input type="radio" name="Q8" value="B"> B. To test a product idea with the minimum resources and features<br>
+        <input type="radio" name="Q8" value="C"> C. To delay the market entry<br>
+        <input type="radio" name="Q8" value="D"> D. To avoid customer feedback<br>
+        <p id="feedback8"></p>
+
+        <!-- Question 9 -->
+        <p>9. What is 'social entrepreneurship'?</p>
+        <input type="radio" name="Q9" value="A"> A. A focus solely on generating profit<br>
+        <input type="radio" name="Q9" value="B"> B. A business approach that aims to solve social problems<br>
+        <input type="radio" name="Q9" value="C"> C. Operating without a business model<br>
+        <input type="radio" name="Q9" value="D"> D. Ignoring sustainability<br>
+        <p id="feedback9"></p>
+
+        <!-- Question 10 -->
+        <p>10. What is the role of 'mentorship' in entrepreneurship?</p>
+        <input type="radio" name="Q10" value="A"> A. To discourage innovation<br>
+        <input type="radio" name="Q10" value="B"> B. To provide guidance and support to entrepreneurs<br>
+        <input type="radio" name="Q10" value="C"> C. To avoid networking<br>
+        <input type="radio" name="Q10" value="D"> D. To limit business growth<br>
+        <p id="feedback10"></p>
+
+        <!-- Question 11 -->
+        <p>11. How does 'crowdfunding' help entrepreneurs?</p>
+        <input type="radio" name="Q11" value="A"> A. By providing legal advice<br>
+        <input type="radio" name="Q11" value="B"> B. By allowing them to raise funds from a large number of people<br>
+        <input type="radio" name="Q11" value="C"> C. By avoiding any form of investment<br>
+        <input type="radio" name="Q11" value="D"> D. By minimizing the need for business planning<br>
+        <p id="feedback11"></p>
+
+        <!-- Question 12 -->
+        <p>12. What is a 'business incubator'?</p>
+        <input type="radio" name="Q12" value="A"> A. A government program<br>
+        <input type="radio" name="Q12" value="B"> B. An organization that supports the growth of startups<br>
+        <input type="radio" name="Q12" value="C"> C. A financial institution<br>
+        <input type="radio" name="Q12" value="D"> D. A marketing agency<br>
+        <p id="feedback12"></p>
+
+        <!-- Question 13 -->
+        <p>13. What is the significance of 'scalability' in a startup?</p>
+        <input type="radio" name="Q13" value="A"> A. It indicates the potential for business growth<br>
+        <input type="radio" name="Q13" value="B"> B. It limits the number of customers<br>
+        <input type="radio" name="Q13" value="C"> C. It decreases the value proposition<br>
+        <input type="radio" name="Q13" value="D"> D. It reduces operational efficiency<br>
+        <p id="feedback13"></p>
+
+        <!-- Question 14 -->
+        <p>14. How does entrepreneurship education benefit students?</p>
+        <input type="radio" name="Q14" value="A"> A. By focusing only on theoretical knowledge<br>
+        <input type="radio" name="Q14" value="B"> B. By preparing them to start and run their own businesses<br>
+        <input type="radio" name="Q14" value="C"> C. By discouraging creativity<br>
+        <input type="radio" name="Q14" value="D"> D. By limiting career options<br>
+        <p id="feedback14"></p>
+
+        <!-- Question 15 -->
+        <p>15. What is the role of 'networking' in entrepreneurship?</p>
+        <input type="radio" name="Q15" value="A"> A. To isolate the entrepreneur<br>
+        <input type="radio" name="Q15" value="B"> B. To build relationships that can support business growth<br>
+        <input type="radio" name="Q15" value="C"> C. To avoid partnerships<br>
+        <input type="radio" name="Q15" value="D"> D. To focus only on internal business processes<br>
+        <p id="feedback15"></p>
+
+        <!-- Question 16 -->
+        <p>16. What is 'entrepreneurial mindset'?</p>
+        <input type="radio" name="Q16" value="A"> A. A mindset focused on fixed goals<br>
+        <input type="radio" name="Q16" value="B"> B. A way of thinking that focuses on identifying opportunities and overcoming challenges<br>
+        <input type="radio" name="Q16" value="C"> C. A tendency to avoid risks<br>
+        <input type="radio" name="Q16" value="D"> D. A preference for routine tasks<br>
+        <p id="feedback16"></p>
+
+        <!-- Question 17 -->
+        <p>17. How does 'lean startup' methodology help entrepreneurs?</p>
+        <input type="radio" name="Q17" value="A"> A. By delaying market entry<br>
+        <input type="radio" name="Q17" value="B"> B. By avoiding customer feedback<br>
+        <input type="radio" name="Q17" value="C"> C. By developing products iteratively and using customer feedback to improve<br>
+        <input type="radio" name="Q17" value="D"> D. By focusing on long-term planning without execution<br>
+        <p id="feedback17"></p>
+
+        <!-- Question 18 -->
+        <p>18. What is 'market segmentation' in entrepreneurship?</p>
+        <input type="radio" name="Q18" value="A"> A. Dividing the market into distinct groups with similar needs<br>
+        <input type="radio" name="Q18" value="B"> B. Ignoring customer diversity<br>
+        <input type="radio" name="Q18" value="C"> C. Focusing on a single customer segment<br>
+        <input type="radio" name="Q18" value="D"> D. Offering the same product to all customers<br>
+        <p id="feedback18"></p>
+
+        <!-- Question 19 -->
+        <p>19. What is the significance of 'competitive analysis' in a business plan?</p>
+        <input type="radio" name="Q19" value="A"> A. To ignore competitors<br>
+        <input type="radio" name="Q19" value="B"> B. To understand the strengths and weaknesses of competitors<br>
+        <input type="radio" name="Q19" value="C"> C. To copy competitors<br>
+        <input type="radio" name="Q19" value="D"> D. To reduce the value proposition<br>
+        <p id="feedback19"></p>
+
+        <!-- Question 20 -->
+        <p>20. How does 'intellectual property protection' benefit entrepreneurs?</p>
+        <input type="radio" name="Q20" value="A"> A. By allowing others to freely use their ideas<br>
+        <input type="radio" name="Q20" value="B"> B. By providing legal rights to protect their innovations and ideas<br>
+        <input type="radio" name="Q20" value="C"> C. By making their ideas public<br>
+        <input type="radio" name="Q20" value="D"> D. By avoiding legal costs<br>
+        <p id="feedback20"></p>
+
+        <button type="submit">Submit Quiz</button>
+    </form>
+
+    <p class="score" id="score"></p>
+
+    <script>
+        let correctAnswers = {
+            Q1: "A", Q2: "B", Q3: "C", Q4: "B", Q5: "A",
+            Q6: "B", Q7: "A", Q8: "B", Q9: "B", Q10: "B",
+            Q11: "B", Q12: "B", Q13: "A", Q14: "B", Q15: "B",
+            Q16: "B", Q17: "C", Q18: "A", Q19: "B", Q20: "B"
+        };
+        let startTime;
+
+        function startQuiz() {
+            const studentName = document.getElementById("studentName").value;
+            const studentID = document.getElementById("studentID").value;
+
+            if (studentName && studentID) {
+                startTime = new Date().toLocaleString();
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("mcqForm").style.display = "block";
+            }
+            return false;
+        }
+
+        function handleSubmit() {
+            let score = 0;
+            let results = '';
+            let endTime = new Date().toLocaleString();
+            const studentName = document.getElementById("studentName").value;
+            const studentID = document.getElementById("studentID").value;
+
+            for (let i = 1; i <= 20; i++) {
+                const qName = "Q" + i;
+                const answer = document.querySelector(`input[name="${qName}"]:checked`);
+
+                if (answer) {
+                    if (answer.value === correctAnswers[qName]) {
+                        score++;
+                        document.getElementById(`feedback${i}`).innerHTML = `Correct!`;
+                        document.getElementById(`feedback${i}`).classList.add('correct');
+                    } else {
+                        document.getElementById(`feedback${i}`).innerHTML = `Incorrect. The correct answer is ${correctAnswers[qName]}.`;
+                        document.getElementById(`feedback${i}`).classList.add('incorrect');
+                    }
+                    results += `Q${i}: ${answer.value} (Correct: ${correctAnswers[qName]})\n`;
+                } else {
+                    results += `Q${i}: Not Answered (Correct: ${correctAnswers[qName]})\n`;
+                }
+            }
+
+            document.getElementById("score").innerText = `You scored ${score} out of 20.`;
+
+            const mailtoLink = `mailto:docrosli.edu@gmail.com?subject=Quiz Results&body=Student Name: ${studentName}%0AStudent ID: ${studentID}%0AStart Time: ${startTime}%0AEnd Time: ${endTime}%0A%0AScore: ${score}/20%0A%0A${encodeURIComponent(results)}`;
+            window.location.href = mailtoLink;
+
+            return false;
+        }
+    </script>
+</body>
+</html>
+
